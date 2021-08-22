@@ -89,7 +89,7 @@ class RunAdapter (
             val dateFormat = SimpleDateFormat("yyyy/MM/dd", Locale.getDefault())
             tvDate.text = dateFormat.format(calendar.time)
 
-            val avgSpeed = "${"%.1f".format(run.avgSpeedInKMH*10)}km/h"
+            val avgSpeed = "${"%.1f".format(run.avgSpeedInKMH)}km/h"
 
             tvAvgSpeed.text = avgSpeed
 

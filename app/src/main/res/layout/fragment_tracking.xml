@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="0m"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/tvDistanceRan"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,22 +81,44 @@
             android:id="@+id/tvSpeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="37dp"
+            android:layout_marginTop="25dp"
             android:layout_marginBottom="56dp"
             android:text="Speed"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/tvTimer"
-            app:layout_constraintStart_toStartOf="@+id/tvDistanceRan"
-            app:layout_constraintTop_toBottomOf="@+id/tvDistanceRan" />
+            app:layout_constraintStart_toStartOf="@+id/tvAvgSp"
+            app:layout_constraintTop_toBottomOf="@+id/tvAvgSp" />
 
         <TextView
             android:id="@+id/tvSpeedValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.0 km/h"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/tvSpeed"
-            app:layout_constraintStart_toStartOf="@+id/tvDistanceNumber" />
+            app:layout_constraintStart_toStartOf="@+id/tvAvgSpeedValue" />
+
+        <TextView
+            android:id="@+id/tvAvgSp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Average Speed"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/tvDistanceRan"
+            app:layout_constraintTop_toBottomOf="@+id/tvDistanceRan" />
+
+        <TextView
+            android:id="@+id/tvAvgSpeedValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="0km/h"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/tvDistanceNumber"
+            app:layout_constraintTop_toBottomOf="@+id/tvDistanceNumber" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -105,24 +104,24 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
     }
 
     private fun subscribeToObservers() {
-        TrackingService.isTracking.observe(viewLifecycleOwner, Observer {
+        TrackingService.isTracking.observe(viewLifecycleOwner, {
             updateTracking(it)
         })
 
-        TrackingService.pathPoints.observe(viewLifecycleOwner, Observer {
+        TrackingService.pathPoints.observe(viewLifecycleOwner, {
             pathPoints = it
             addLatestPolyline()
             moveCameraToUser()
             showDistanceRan()
         })
 
-        TrackingService.timeRunInMillis.observe(viewLifecycleOwner, Observer {
+        TrackingService.timeRunInMillis.observe(viewLifecycleOwner, {
             curTimeInMillis = it
             val formattedTime = TrackingUtility.getFormattedStopWatchTime(curTimeInMillis, true)
             tvTimer.text = formattedTime
         })
 
-        TrackingService.speed.observe(viewLifecycleOwner, Observer {
+        TrackingService.speed.observe(viewLifecycleOwner, {
             val speedString = String.format("%.1f", (it*3600)*.001) + " km/h"
             tvSpeedValue.text = speedString
         })
@@ -132,12 +131,22 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
     }
 
     private fun showDistanceRan(){
-        var distanceToUi = 0
+        var distanceInMeters = 0
         for(polyline in pathPoints){
-            distanceToUi += TrackingUtility.calculatePolylineLength(polyline).toInt()
+            distanceInMeters += TrackingUtility.calculatePolylineLength(polyline).toInt()
         }
-        val distanceString = "${distanceToUi}m"
+        val distanceString = "${distanceInMeters}m"
         tvDistanceNumber.text = distanceString
+        if (distanceInMeters<1){
+            tvAvgSpeedValue.text = "0km/h"
+        }else {
+            val timeRanInSeconds = curTimeInMillis * 0.001f
+            //km/h = 1000m/3600sekunder
+
+            val avgSpeed = (distanceInMeters * 0.001f) / (timeRanInSeconds / 3600f)
+            val avgSpeedString = String.format("%.1f", (avgSpeed)) + "km/h"
+            tvAvgSpeedValue.text = avgSpeedString}
+
     }
 
     private fun toggleRun(){
@@ -234,7 +243,9 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
             for(polyline in pathPoints){
                 distanceInMeters += TrackingUtility.calculatePolylineLength(polyline).toInt()
             }
-            val avgSpeed = round(distanceInMeters / 1000f) / (curTimeInMillis / 1000f / 60 / 60) / 10f
+            //val avgSpeed = round(distanceInMeters / 1000f) / (curTimeInMillis / 1000f / 60 / 60) / 10f
+            val timeRanInSeconds = curTimeInMillis*0.001f
+            val avgSpeed = (distanceInMeters * 0.001f) / (timeRanInSeconds / 3600f)
             val dateTimestamp = Calendar.getInstance().timeInMillis
             val caloriesBurned = ((distanceInMeters / 1000f) * weight).toInt()
             val run = Run(bmp,dateTimestamp, avgSpeed, distanceInMeters, curTimeInMillis, caloriesBurned)

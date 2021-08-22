@@ -5,9 +5,12 @@
       <map>
         <entry key="..\:/Users/andre/StudioProjects/RunnerApp4/RunnerApp4/app/src/main/res/layout-land/fragment_statistics.xml" value="0.3692708333333333" />
         <entry key="..\:/Users/andre/StudioProjects/RunnerApp4/RunnerApp4/app/src/main/res/layout-land/fragment_tracking.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/andre/StudioProjects/RunnerApp4/RunnerApp4/app/src/main/res/layout/activity_main.xml" value="0.22199798183652875" />
         <entry key="..\:/Users/andre/StudioProjects/RunnerApp4/RunnerApp4/app/src/main/res/layout/fragment_run.xml" value="0.19046417759838546" />
+        <entry key="..\:/Users/andre/StudioProjects/RunnerApp4/RunnerApp4/app/src/main/res/layout/fragment_settings.xml" value="0.2217457114026236" />
         <entry key="..\:/Users/andre/StudioProjects/RunnerApp4/RunnerApp4/app/src/main/res/layout/fragment_statistics.xml" value="0.4578125" />
-        <entry key="..\:/Users/andre/StudioProjects/RunnerApp4/RunnerApp4/app/src/main/res/layout/fragment_tracking.xml" value="0.264" />
+        <entry key="..\:/Users/andre/StudioProjects/RunnerApp4/RunnerApp4/app/src/main/res/layout/fragment_tracking.xml" value="0.4" />
+        <entry key="..\:/Users/andre/StudioProjects/RunnerApp4/RunnerApp4/app/src/main/res/layout/marker_view.xml" value="0.2217457114026236" />
       </map>
     </option>
   </component>
