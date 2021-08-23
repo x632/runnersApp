@@ -64,15 +64,15 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         })
         viewModel.totalDistance.observe(viewLifecycleOwner, {
             it?.let {
-                val km = it / 1000
-                val totalDistance = round(km * 10f) / 10f
-                val totalDistanceString = "${totalDistance}km"
+                val km = it / 1000f
+                //val totalDistance = round(km * 10f) / 10f
+                val totalDistanceString = "${"%.1f".format(km)}km"
                 tvTotalDistance.text = totalDistanceString
             }
         })
         viewModel.totalAvgSpeed.observe(viewLifecycleOwner, {
             it?.let {
-                val avgSpeed = "${"%.1f".format(it*10)}km/h"
+                val avgSpeed = "${"%.2f".format(it)}km/h"
                 //val avgSpeed = round(it * 10f) / 10f
                 //val avgSpeedString = "${avgSpeed}km/h"
                 //val avgSpeedString = avgSpeed

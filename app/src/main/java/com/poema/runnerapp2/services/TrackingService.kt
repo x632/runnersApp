@@ -240,7 +240,7 @@ class TrackingService : LifecycleService() {
 
         startForeground(NOTIFICATION_ID, baseNotificationBuilder.build())
 
-        timeRunInSeconds.observe(this, Observer {
+        timeRunInSeconds.observe(this,{
             if(!serviceKilled){
                 val notification = curNotificationBuilder
                     .setContentText(TrackingUtility.getFormattedStopWatchTime(it * 1000L))
