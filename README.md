@@ -8,9 +8,9 @@ Additions and changes that I have made:
 3. In the tracking fragment I added live viewing of Distance ran in meters, live viewing of Average speed thus far, and finally live viewing of currentspeed.
 4. I have done quite a few changes to the formatting (and rounding) to most of the data that is displayed - this is mainly to suit my very own running needs. 
 5. I have fixed some bugs in the statistics fragment and markerView - it now shows the correct markerView for the bar - and the latest run is to the right in the view. 
-6. I have removed the horizontal landscape views and fixated the activity for portrait (mainly because I was to lazy to change all layouts).
+6. I have removed the horizontal landscape views and fixated the activity for portrait (mainly because I was too lazy to change all layouts).
 
-
+Works fine for me this point.
 
 
 
