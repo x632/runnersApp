@@ -10,7 +10,7 @@ Additions and changes that I have made:
 5. I have fixed some bugs in the statistics fragment and markerView - it now shows the correct markerView for the bar - and the latest run is to the right in the view. 
 6. I have removed the horizontal landscape views and fixated the activity for portrait (mainly because I was too lazy to change all layouts).
 
-Works fine for me this point.
+Works fine for me at this point.
 
 
 
