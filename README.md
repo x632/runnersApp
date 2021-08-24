@@ -1,5 +1,5 @@
 # runnersApp
-This project stems from the YouTube course Running app by Philipp Lackner. 
+This project stems from the YouTube course Running app by Philipp Lackner. Big thanks to him, especially for the foreground service and notification system which were lacking in my other run trackers. 
 
 Additions and changes that I have made:
 
